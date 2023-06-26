@@ -51,12 +51,30 @@ const pinkPrice = .55
 
 // CODE HERE
 
-let totalAcres = 0; //initailize total number with 0. 
+// total acres picked for entire week in fujiAcres.
+let totalAcresInFuji = 0;
 for (let i = 0; i < fujiAcres.length; i++){
-    totalAcres += fujiAcres[i] //totalAcres will be updated after each loop.
+    totalAcresInFuji += fujiAcres[i] //totalAcres will be updated after each loop.
 }
-console.log(totalAcres);
+console.log(`total acres picked for entire week in fujiAcres : ${totalAcresInFuji}`);
 
+// total acres picked for entire week in galaAcres.
+let totalAcresInGala = 0;
+for (let i = 0; i < galaAcres.length; i++){
+    totalAcresInGala += galaAcres[i] //totalAcres will be updated after each loop.
+}
+console.log(`total acres picked for entire week in fujiAcres : ${totalAcresInGala}`);
+
+// total acres picked for entire week in pinkAcres.
+let totalAcresInPink = 0;
+for (let i = 0; i < pinkAcres.length; i++){
+    totalAcresInPink += pinkAcres[i] //totalAcres will be updated after each loop.
+}
+console.log(`total acres picked for entire week in fujiAcres : ${totalAcresInPink}`);
+
+let totalAcres = 0; //initialize total number with 0. 
+totalAcres = totalAcresInFuji + totalAcresInGala + totalAcresInPink
+console.log(`*** Total Acres pick : ${totalAcres}`)
 
 // PROBLEM 2
 
@@ -72,8 +90,8 @@ console.log(totalAcres);
 
 // CODE HERE
 
-let averageDailyAcres = totalAcres/ fujiAcres.length
-console.log(averageDailyAcres);
+let averageDailyAcres = totalAcres/ 7
+console.log(`*** Average acres picked per day : ${averageDailyAcres}`);
 
 
 // PROBLEM 3
@@ -113,7 +131,7 @@ while (acresLeft > 0) {
     days++; //add 1 to the `days` variable
     acresLeft -= averageDailyAcres; //subtract daily average from the number of acres left.
  }
-console.log(days);
+console.log(`*** Days of work are left : ${days}`);
 
 // PROBLEM 4
 
@@ -188,8 +206,8 @@ let galaPounds =[]
 let pinkPounds = []
 
 //pounds of fujiAcres
-for (let i = 0; i < fujiAcres.length; i++){
-    fujiPounds.push(fujiAcres[i] * 6.5* 2000);
+for (let i = 0; i < fujiTons.length; i++){
+    fujiPounds.push(fujiTons[i] * 2000);
     
 }
 console.log(fujiPounds);
@@ -199,11 +217,11 @@ let totalFujiPounds = 0;
 for (let i = 0; i < fujiPounds.length; i++){
     totalFujiPounds += fujiPounds[i]
 }
-console.log(`***Total pounds of fuji's acres : ${totalFujiPounds}`);
+console.log(`*** Total pounds of fuji's acres : ${totalFujiPounds}`);
 
 //pounds of galaAcres
-for (let i = 0; i < galaAcres.length; i++){
-    galaPounds.push(galaAcres[i] * 6.5 * 2000)
+for (let i = 0; i < galaTons.length; i++){
+    galaPounds.push(galaTons[i] * 2000)
 }
 console.log(galaPounds);
 
@@ -212,12 +230,12 @@ let totalGalaPounds = 0;
 for (let i = 0; i < galaPounds.length; i++){
     totalGalaPounds += galaPounds[i]
 }
-console.log(`***Total pounds of gala's acres : ${totalGalaPounds}`);
+console.log(`*** Total pounds of gala's acres : ${totalGalaPounds}`);
 
 
 //pounds of pinkAcres
-for (let i = 0; i < pinkAcres.length; i++){
-    pinkPounds.push(pinkAcres[i] * 6.5 * 2000)
+for (let i = 0; i < pinkTons.length; i++){
+    pinkPounds.push(pinkTons[i] * 2000)
 }
 console.log(pinkPounds);
 
@@ -226,7 +244,7 @@ let totalPinkPounds = 0;
 for (let i = 0; i < pinkPounds.length; i++){
     totalPinkPounds += pinkPounds[i]
 }
-console.log(`***Total pounds of pink's acres : ${totalPinkPounds}`);
+console.log(`*** Total pounds of pink's acres : ${totalPinkPounds}`);
 
 
 // PROBLEM 6
@@ -246,7 +264,7 @@ console.log(`***Total pounds of pink's acres : ${totalPinkPounds}`);
 */
 
 // CODE HERE
-
+console.log('-------------------------------------')
 let fujiProfit = totalFujiPounds * fujiPrice
 console.log(`Total profit of fuji 's acres : ${fujiProfit}`)
 let galaProfit = totalGalaPounds * galaPrice
@@ -271,4 +289,4 @@ console.log(`Total profit of pink 's acres : ${pinkProfit}`)
 
 // CODE HERE
 let totalProfit = fujiProfit + galaProfit + pinkProfit
-  console.log(`***Total profit of all acres : ${totalProfit}`)
+  console.log(`*** Total profit of all acres : ${totalProfit}`)
